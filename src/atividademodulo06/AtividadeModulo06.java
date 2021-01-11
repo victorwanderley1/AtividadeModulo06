@@ -1,6 +1,9 @@
 package atividademodulo06;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Criando uma lista de chamada com a visualização do nome do aluno
@@ -20,6 +23,15 @@ public class AtividadeModulo06 {
         alunos.add("Roberto");
         alunos.add("Nivaldo");
         alunos.add("Bartira");
+        
+        Aluno aluno1 = new Aluno("Victor", 10);
+        
+        aluno1.presencaAluno(3, true);
+        aluno1.presencaAluno(6, true);
+        aluno1.presencaAluno(8, true);
+        aluno1.presencaAluno(19, true);
+        
+        aluno1.getDiasEstudados();
     }
     
 }

@@ -13,6 +13,9 @@ public class Aluno {
         this.nome = nome;
         this.diasLetivos = diasLetivos;
         this.diasEstudados = new Boolean[diasLetivos];
+        for(int i = 0; i<diasLetivos; i++){
+            this.diasEstudados[i] = false;
+        }
     }
 
     public String getNome() {
@@ -23,19 +26,23 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public Boolean[] getDiasEstudados() {
-        return diasEstudados;
-    }
-
-    public void setDiasEstudados(Boolean[] diasEstudados) {
-        this.diasEstudados = diasEstudados;
-    }
-    
-    public void alunoPresente (int dia){
-        if (seDiaMenorQueDiasLetivos(dia)){
-            diasEstudados[dia] = true;
+    public void getDiasEstudados() {
+        for (boolean presenca: diasEstudados){
+            System.out.print(presencaEmString(presenca));
         }
     }
+    
+    private String presencaEmString (Boolean presenca){
+        if (presenca == true) return "Presente ";
+        else return "Faltou ";
+    }
+
+    public void presencaAluno(int dia, Boolean presenca) {
+        if (seDiaMenorQueDiasLetivos(dia)){
+            this.diasEstudados[--dia] = presenca;
+        }
+    }
+    
     
     public Boolean seDiaMenorQueDiasLetivos (int dia){
         return dia <= diasLetivos;
