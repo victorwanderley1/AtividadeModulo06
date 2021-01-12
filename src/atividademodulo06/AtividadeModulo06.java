@@ -2,6 +2,7 @@ package atividademodulo06;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,25 +14,26 @@ import java.util.Map;
 public class AtividadeModulo06 {
 
     public static void main(String[] args) {
-        List<String> alunos = new ArrayList();
+        List<Aluno> turmaCursoJava = new ArrayList();        
+        Automatizador automatizador = new Automatizador();
         
-        alunos.add("Lucas");
-        alunos.add("Eslovênia");
-        alunos.add("Caio");
-        alunos.add("Joana");
-        alunos.add("Yasmim");
-        alunos.add("Roberto");
-        alunos.add("Nivaldo");
-        alunos.add("Bartira");
+        turmaCursoJava.add(new Aluno("João", 30));
+        turmaCursoJava.add(new Aluno("Wendel", 30));
+        turmaCursoJava.add(new Aluno("Fernanda", 20));
+        turmaCursoJava.add(new Aluno("Gabriela", 30));
+        turmaCursoJava.add(new Aluno("Amanda", 18));
+        turmaCursoJava.add(new Aluno("Benardo", 19));
+        turmaCursoJava.add(new Aluno("Fabrício", 25));
+        turmaCursoJava.add(new Aluno("Mariana", 30));
+        turmaCursoJava.add(new Aluno("Lindalva", 30));
+        Collections.sort(turmaCursoJava);
+        automatizador.frenquenciaAutomatica(turmaCursoJava);
         
-        Aluno aluno1 = new Aluno("Victor", 10);
+        for (int i = 0; i<turmaCursoJava.size(); i++){
+         turmaCursoJava.get(i).getDiasEstudados();
+     }
+                
         
-        aluno1.presencaAluno(3, true);
-        aluno1.presencaAluno(6, true);
-        aluno1.presencaAluno(8, true);
-        aluno1.presencaAluno(19, true);
-        
-        aluno1.getDiasEstudados();
     }
     
 }
