@@ -4,7 +4,7 @@ package atividademodulo06;
  *
  * @author Victor-Vanessa
  */
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
     private String nome;
     private final Integer diasLetivos;
     private Boolean[] diasEstudados;
@@ -25,11 +25,19 @@ public class Aluno {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
+    public int getDiasLetivos(){
+        return diasLetivos;
+    }
+    
     public void getDiasEstudados() {
+        System.out.print(getNome() + ": ");
+        int dia = 0;
         for (boolean presenca: diasEstudados){
-            System.out.print(presencaEmString(presenca));
+            dia++;
+            System.out.print("Dia " + dia + " - " + presencaEmString(presenca));
         }
+        System.out.println("");
     }
     
     private String presencaEmString (Boolean presenca){
@@ -39,12 +47,17 @@ public class Aluno {
 
     public void presencaAluno(int dia, Boolean presenca) {
         if (seDiaMenorQueDiasLetivos(dia)){
-            this.diasEstudados[--dia] = presenca;
+            this.diasEstudados[dia] = presenca;
         }
     }
     
     
     public Boolean seDiaMenorQueDiasLetivos (int dia){
         return dia <= diasLetivos;
+    }
+
+    @Override
+    public int compareTo(Aluno o) {
+        return this.nome.compareTo(o.nome);
     }
 }
