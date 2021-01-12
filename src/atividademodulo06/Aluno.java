@@ -42,7 +42,7 @@ public class Aluno implements Comparable<Aluno> {
     
     private String presencaEmString (Boolean presenca){
         if (presenca == true) return "Presente ";
-        else return "Faltou ";
+        else return "Ausente ";
     }
 
     public void presencaAluno(int dia, Boolean presenca) {
